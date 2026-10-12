@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Our Academy | Bodhi Tree Academy</title>
+
+  <style>
+    :root {
+      --green: #064b35;
+      --dark-green: #033525;
+      --gold: #d6ad50;
+      --white: #ffffff;
+      --light: #f4f8f5;
+      --text: #293b31;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; }
+
+    /* HEADER */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,.1);
+    }
+
+    .header-inner {
+      max-width: 1500px;
+      margin: auto;
+      padding: 12px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+    }
+
+    .brand-text h1 {
+      color: var(--green);
+      font-size: 23px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .brand-text p {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      transition: color .3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a:focus-visible,
+    .nav-menu a.active,
+    .nav-menu a.active:visited {
+      color: var(--gold) !important;
+    }
+
+    .nav-menu a.join-btn {
+      background: var(--green);
+      color: var(--white) !important;
+      padding: 10px 13px;
+      border-radius: 5px;
+    }
+
+    .nav-menu a.join-btn:hover {
+      background: var(--gold);
+      color: var(--dark-green) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: none;
+      background: var(--green);
+      color: var(--white);
+      font-size: 25px;
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* PAGE BANNER */
+    .page-banner {
+      min-height: 260px;
+      background:
+        linear-gradient(rgba(3,53,37,.78), rgba(3,53,37,.78)),
+        url("./images/hero1.jpeg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 45px 20px;
+    }
+
+    .page-banner h2 {
+      color: var(--white);
+      font-size: clamp(32px, 5vw, 46px);
+      margin-bottom: 10px;
+    }
+
+    .page-banner p {
+      color: var(--gold);
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    /* REGISTRATION FORM */
+    .registration-section {
+      padding: 45px 20px 65px;
+      background: var(--light);
+    }
+
+    .registration-container {
+      max-width: 760px;
+      margin: auto;
+      background: var(--white);
+      padding: 35px;
+      border-radius: 12px;
+      border-top: 5px solid var(--gold);
+      box-shadow: 0 5px 25px rgba(0,0,0,.08);
+    }
+
+    .registration-container h2 {
+      color: var(--green);
+      text-align: center;
+      font-size: 29px;
+      margin-bottom: 8px;
+    }
+
+    .registration-description {
+      text-align: center;
+      color: #59665e;
+      margin-bottom: 28px;
+    }
+
+    .gold-line {
+      width: 70px;
+      height: 4px;
+      background: var(--gold);
+      margin: 14px auto 25px;
+      border-radius: 5px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd6ce;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: 2px solid var(--gold);
+      border-color: var(--green);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 95px;
+    }
+
+    .required-note {
+      font-size: 13px;
+      color: #68746c;
+      margin-bottom: 18px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      background: var(--green);
+      color: var(--white);
+      padding: 14px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--gold);
+      color: var(--dark-green);
+    }
+
+    .privacy-note {
+      margin-top: 15px;
+      text-align: center;
+      color: #68746c;
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--dark-green);
+      color: var(--white);
+      text-align: center;
+      padding: 35px 20px 20px;
+    }
+
+    .site-footer h2 {
+      color: var(--white);
+      font-size: 23px;
+      margin-bottom: 5px;
+    }
+
+    .footer-tagline {
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .footer-motto {
+      color: #e0e9e3;
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      font-size: 14px;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-contact { margin: 12px 0; }
+
+    .footer-contact a { color: var(--gold); }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.2);
+      margin-top: 22px;
+      padding-top: 16px;
+      font-size: 13px;
+      color: #d7e0d9;
+    }
+
+    /* MOBILE */
+    @media (max-width: 1100px) {
+      .header-inner { flex-wrap: wrap; }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0;
+      }
+
+      .nav-menu.open { display: flex; }
+
+      .nav-menu a {
+        display: block;
+        white-space: normal;
+        padding: 11px 8px;
+        border-bottom: 1px solid #edf0ed;
+        font-size: 14px;
+      }
+
+      .nav-menu a.join-btn {
+        text-align: center;
+        margin-top: 8px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        padding: 10px 14px;
+        gap: 10px;
+      }
+
+      .brand { gap: 8px; }
+
+      .brand-logo {
+        width: 58px;
+        height: 58px;
+      }
+
+      .brand-text h1 { font-size: 17px; }
+      .brand-text p { font-size: 11px; }
+
+      .menu-toggle {
+        font-size: 22px;
+        padding: 4px 10px;
+      }
+
+      .page-banner { min-height: 220px; }
+
+      .registration-container {
+        padding: 25px 18px;
+      }
+
+      .registration-container h2 { font-size: 25px; }
+
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+
+      .footer-links { gap: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="index.html" class="brand">
+        <img src="images/logo.png"
+             alt="Bodhi Tree Academy Logo"
+             class="brand-logo">
+
+        <div class="brand-text">
+          <h1>BODHI TREE ACADEMY</h1>
+          <p>School of Arts • Since 2013</p>
+        </div>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navMenu"
+      >☰</button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="instructors.html">Instructors</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="classes.html">Classes &amp; Timings</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="registration.html" class="join-btn active"
+           aria-current="page">Join Our Academy</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- BANNER -->
+  <section class="page-banner">
+    <div>
+      <h2>Join Our Academy</h2>
+      <p>Start Your Karate Journey With Us</p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION FORM -->
+  <section class="registration-section">
+    <div class="registration-container">
+
+      <h2>Student Registration</h2>
+
+      <p class="registration-description">
+        Fill in your details below to enquire about joining
+        Bodhi Tree Academy.
+      </p>
+
+      <div class="gold-line"></div>
+
+      <form id="registrationForm">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="studentName">Student Full Name *</label>
+            <input type="text" id="studentName" name="studentName"
+                   placeholder="Enter student name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="dob">Date of Birth *</label>
+            <input type="date" id="dob" name="dob" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="parentName">Parent / Guardian Name *</label>
+            <input type="text" id="parentName" name="parentName"
+                   placeholder="Enter parent or guardian name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Contact Phone Number *</label>
+            <input type="tel" id="phone" name="phone"
+                   placeholder="10-digit mobile number"
+                   pattern="[6-9][0-9]{9}"
+                   title="Enter a valid 10-digit Indian mobile number"
+                   maxlength="10" inputmode="numeric" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="location">Preferred Training Location *</label>
+            <select id="location" name="location" required>
+              <option value="">Select location</option>
+              <option value="Cheranmahadevi">Cheranmahadevi</option>
+              <option value="Polikkarai">Polikkarai</option>
+              <option value="Tirunelveli">Tirunelveli</option>
+              <option value="Melacheval">Melacheval</option>
+              <option value="Town">Town</option>
+              <option value="Other">Other / Not sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">Previous Karate Experience *</label>
+            <select id="experience" name="experience" required>
+              <option value="">Select experience</option>
+              <option value="Beginner">Beginner - No experience</option>
+              <option value="Some experience">Some experience</option>
+              <option value="Currently training">Currently training</option>
+              <option value="Previously trained">Previously trained</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Additional Information (Optional)</label>
+          <textarea id="message" name="message"
+                    placeholder="Any questions or additional details"></textarea>
+        </div>
+
+        <p class="required-note">* Required fields</p>
+
+        <button type="submit" class="submit-btn">
+          Submit Registration via WhatsApp
+        </button>
+
+        <p class="privacy-note">
+          Your details will be placed into a WhatsApp message.
+          Review and send the message yourself to complete your enquiry.
+        </p>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <h2>BODHI TREE ACADEMY</h2>
+    <p class="footer-tagline">School of Arts • Since 2013</p>
+    <p class="footer-motto">Karate • Discipline • Confidence</p>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="instructors.html">Instructors</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="classes.html">Classes &amp; Timings</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+
+    <p class="footer-contact">
+      Phone: <a href="tel:+917373509363">7373509363</a>
+    </p>
+
+    <p class="footer-contact">
+      WhatsApp:
+      <a href="https://wa.me/917373509363"
+         target="_blank" rel="noopener noreferrer">
+        Chat with us
+      </a>
+    </p>
+
+    <p class="footer-contact">
+      Instagram:
+      <a href="https://www.instagram.com/bodhitree_academy_tn/"
+         target="_blank" rel="noopener noreferrer">
+        @bodhitree_academy_tn
+      </a>
+    </p>
+
+    <p class="footer-contact">
+      Facebook:
+      <a href="https://www.facebook.com/share/1BY83kLsGH/"
+         target="_blank" rel="noopener noreferrer">
+        Visit Our Facebook
+      </a>
+    </p>
+
+    <div class="copyright">
+      &copy; <span id="year"></span> Bodhi Tree Academy.
+      All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navMenu.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.innerHTML = isOpen ? "&times;" : "☰";
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+    });
+
+    document.querySelectorAll("#navMenu a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.innerHTML = "☰";
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+      });
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Registration form: prepare a WhatsApp message
+    document.getElementById("registrationForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const studentName =
+          document.getElementById("studentName").value.trim();
+        const dob =
+          document.getElementById("dob").value;
+        const parentName =
+          document.getElementById("parentName").value.trim();
+        const phone =
+          document.getElementById("phone").value.trim();
+        const location =
+          document.getElementById("location").value;
+        const experience =
+          document.getElementById("experience").value;
+        const message =
+          document.getElementById("message").value.trim();
+
+        const text =
+`BODHI TREE ACADEMY - STUDENT REGISTRATION
+
+Student Name: ${studentName}
+Date of Birth: ${dob}
+Parent/Guardian Name: ${parentName}
+Contact Number: ${phone}
+Preferred Training Location: ${location}
+Karate Experience: ${experience}
+Additional Information: ${message || "None"}
+
+I would like to enquire about admission to Bodhi Tree Academy.`;
+
+        const whatsappURL =
+          "https://wa.me/917373509363?text=" +
+          encodeURIComponent(text);
+
+        window.open(whatsappURL, "_blank", "noopener,noreferrer");
+      });
+  </script>
+
+</body>
+</html>

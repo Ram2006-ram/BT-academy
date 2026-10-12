@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Classes & Timings | Bodhi Tree Academy</title>
+
+<style>
+:root {
+    --green: #064b35;
+    --dark-green: #033525;
+    --gold: #d6ad50;
+    --white: #ffffff;
+    --light: #f4f8f5;
+    --text: #293b31;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HEADER */
+.site-header {
+    background: var(--white);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1500px;
+    margin: auto;
+    padding: 12px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 78px;
+    height: 78px;
+    object-fit: contain;
+}
+
+.brand-text h1 {
+    color: var(--green);
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+/* GOLD TAGLINE */
+.site-header .brand-text p {
+    color: #d6ad50 !important;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* NAVIGATION */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* GOLD WHEN HOVERED OR FOCUSED */
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
+    color: var(--gold) !important;
+}
+
+/* CURRENT PAGE STAYS GOLD */
+.nav-menu a.active,
+.nav-menu a.active:visited {
+    color: var(--gold) !important;
+}
+
+/* CLICKED LINK */
+.nav-menu a:active {
+    color: var(--gold) !important;
+}
+
+/* JOIN BUTTON */
+.nav-menu a.join-btn {
+    background: var(--green);
+    color: var(--white) !important;
+    padding: 11px 15px;
+    border-radius: 5px;
+}
+
+.nav-menu a.join-btn:hover,
+.nav-menu a.join-btn:focus-visible {
+    background: var(--gold);
+    color: var(--dark-green) !important;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: var(--green);
+    color: white;
+    padding: 8px 13px;
+    border-radius: 5px;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+/* PAGE BANNER */
+.page-banner {
+    min-height: 280px;
+    background:
+        linear-gradient(rgba(3,53,37,0.84), rgba(3,53,37,0.84)),
+        url("./images/hero1.jpeg") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.page-banner h2 {
+    font-size: clamp(30px, 5vw, 46px);
+}
+
+.page-banner p {
+    max-width: 700px;
+    margin-top: 8px;
+}
+
+.gold-line {
+    width: 75px;
+    height: 4px;
+    background: var(--gold);
+    margin: 15px auto;
+    border-radius: 5px;
+}
+
+/* SECTIONS */
+.container {
+    width: min(1150px, 92%);
+    margin: auto;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--green);
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-intro {
+    max-width: 760px;
+    text-align: center;
+    color: #647067;
+    margin: 0 auto 35px;
+}
+
+/* LOCATION CARDS */
+.locations-section {
+    background: var(--light);
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.location-card {
+    background: white;
+    border: 1px solid #e4ece6;
+    border-bottom: 4px solid var(--gold);
+    border-radius: 12px;
+    padding: 26px 23px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.09);
+}
+
+.location-icon {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.location-card h3 {
+    color: var(--green);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.location-card p {
+    color: #647067;
+    font-size: 14px;
+}
+
+.class-days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 15px 0;
+}
+
+.day {
+    background: #e8f2eb;
+    color: var(--green);
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.time-label {
+    display: block;
+    background: #fff4d8;
+    color: #72510b;
+    border-radius: 7px;
+    padding: 12px;
+    margin: 12px 0;
+}
+
+.time-label small {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.time-label strong {
+    font-size: 17px;
+}
+
+.map-link {
+    display: inline-block;
+    color: var(--green);
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+    border-bottom: 1px solid var(--gold);
+}
+
+.map-link:hover {
+    color: #98711d;
+}
+
+/* TRAINING DETAILS */
+.training-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.training-card {
+    background: var(--light);
+    padding: 25px;
+    border-left: 4px solid var(--green);
+    border-radius: 9px;
+}
+
+.training-card h3 {
+    color: var(--green);
+    margin-bottom: 9px;
+}
+
+.training-card p {
+    color: #647067;
+    font-size: 14px;
+}
+
+/* NOTICE */
+.notice {
+    background: #fff8e8;
+    border-left: 5px solid var(--gold);
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 6px;
+}
+
+.notice h3 {
+    color: var(--green);
+    margin-bottom: 5px;
+}
+
+/* JOIN SECTION */
+.join-section {
+    background: var(--green);
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.join-section h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.join-section p {
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+.cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark-green);
+    font-weight: bold;
+    padding: 12px 22px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.cta-btn:hover {
+    background: white;
+}
+
+.cta-btn.outline {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.cta-btn.outline:hover {
+    background: white;
+    color: var(--green);
+}
+
+/* FOOTER */
+.site-footer {
+    background: var(--dark-green);
+    color: white;
+    padding: 38px 20px 18px;
+    text-align: center;
+}
+
+.site-footer h2 {
+    font-size: 24px;
+}
+
+.footer-tagline {
+    color: var(--gold);
+    margin: 5px 0 12px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: white;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.site-footer .copyright {
+    border-top: 1px solid rgba(255,255,255,0.18);
+    margin-top: 22px;
+    padding-top: 15px;
+    color: #d2ded6;
+    font-size: 13px;
+}
+
+/* RESPONSIVE NAVIGATION */
+@media (max-width: 1100px) {
+    .header-inner {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-menu a {
+        padding: 12px 10px;
+        border-bottom: 1px solid #edf0ed;
+    }
+
+    .nav-menu a.active {
+        color: var(--gold) !important;
+    }
+
+    .nav-menu a.join-btn {
+        text-align: center;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 700px) {
+    .header-inner {
+        padding: 10px 14px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand-logo {
+        width: 58px;
+        height: 58px;
+    }
+
+    .brand-text h1 {
+        font-size: 17px;
+    }
+
+    .site-header .brand-text p {
+        font-size: 10px;
+        letter-spacing: 0.4px;
+    }
+
+    .location-grid,
+    .training-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 45px 0;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
+    .page-banner {
+        min-height: 230px;
+    }
+
+    .join-section h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+
+        <a href="index.html" class="brand">
+            <img src="images/logo.png"
+                 alt="Bodhi Tree Academy Logo"
+                 class="brand-logo">
+
+            <div class="brand-text">
+                <h1>BODHI TREE ACADEMY</h1>
+                <p>School of Arts • Since 2013</p>
+            </div>
+        </a>
+
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
+
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="instructors.html">Instructors</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="classes.html" class="active"
+               aria-current="page">Classes & Timings</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="registration.html" class="join-btn">
+                Join Our Academy
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+<!-- BANNER -->
+<section class="page-banner">
+    <h2>Classes & Timings</h2>
+    <div class="gold-line"></div>
+    <p>
+        Discover your nearest training location and join
+        Bodhi Tree Academy to learn karate, discipline and confidence.
+    </p>
+</section>
+
+<!-- LOCATIONS -->
+<section class="section locations-section">
+    <div class="container">
+
+        <h2 class="section-title">Our Training Locations</h2>
+        <div class="gold-line"></div>
+
+        <p class="section-intro">
+            Check the weekly class schedule below.
+            Map links help you explore each locality.
+            Contact the academy to confirm the exact training venue.
+        </p>
+
+        <div class="location-grid">
+
+            <!-- TIRUNELVELI -->
+            <article class="location-card">
+                <div class="location-icon">📍</div>
+                <h3>Tirunelveli</h3>
+                <p>Karate training sessions in Tirunelveli.</p>
+
+                <div class="class-days">
+                    <span class="day">Saturday</span>
+                    <span class="day">Sunday</span>
+                    <span class="day">Monday</span>
+                </div>
+
+                <div class="time-label">
+                    <small>Class Timing</small>
+                    <strong>6:00 PM – 8:00 PM</strong>
+                </div>
+
+                <a class="map-link"
+                   href="https://www.google.com/maps/search/?api=1&query=Tirunelveli%2C+Tamil+Nadu"
+                   target="_blank" rel="noopener noreferrer">
+                    View Tirunelveli Map ↗
+                </a>
+            </article>
+
+            <!-- MELACHEVAL -->
+            <article class="location-card">
+                <div class="location-icon">📍</div>
+                <h3>Melacheval</h3>
+                <p>Weekend karate training sessions at Melacheval.</p>
+
+                <div class="class-days">
+                    <span class="day">Saturday</span>
+                    <span class="day">Sunday</span>
+                </div>
+
+                <div class="time-label">
+                    <small>Class Timing</small>
+                    <strong>10:00 AM – 11:30 AM</strong>
+                </div>
+
+                <a class="map-link"
+                   href="https://www.google.com/maps/search/?api=1&query=Melacheval%2C+Tirunelveli%2C+Tamil+Nadu"
+                   target="_blank" rel="noopener noreferrer">
+                    View Melacheval Map ↗
+                </a>
+            </article>
+
+            <!-- POLIKKARAI -->
+            <article class="location-card">
+                <div class="location-icon">📍</div>
+                <h3>Polikkarai</h3>
+                <p>Weekend karate training sessions at Polikkarai.</p>
+
+                <div class="class-days">
+                    <span class="day">Saturday</span>
+                    <span class="day">Sunday</span>
+                </div>
+
+                <div class="time-label">
+                    <small>Class Timing</small>
+                    <strong>7:00 AM – 8:30 AM</strong>
+                </div>
+
+                <a class="map-link"
+                   href="https://www.google.com/maps/search/?api=1&query=Polikkarai%2C+Tirunelveli%2C+Tamil+Nadu"
+                   target="_blank" rel="noopener noreferrer">
+                    View Polikkarai Map ↗
+                </a>
+            </article>
+
+            <!-- CHERANMAHADEVI -->
+            <article class="location-card">
+                <div class="location-icon">📍</div>
+                <h3>Cheranmahadevi</h3>
+                <p>Weekend karate training sessions at Cheranmahadevi.</p>
+
+                <div class="class-days">
+                    <span class="day">Saturday</span>
+                    <span class="day">Sunday</span>
+                </div>
+
+                <div class="time-label">
+                    <small>Class Timing</small>
+                    <strong>7:00 AM – 8:30 AM</strong>
+                </div>
+
+                <a class="map-link"
+                   href="https://www.google.com/maps/search/?api=1&query=Cheranmahadevi%2C+Tirunelveli%2C+Tamil+Nadu"
+                   target="_blank" rel="noopener noreferrer">
+                    View Cheranmahadevi Map ↗
+                </a>
+            </article>
+
+        </div>
+
+       
+
+    </div>
+</section>
+
+<!-- TRAINING DETAILS -->
+<section class="section">
+    <div class="container">
+
+        <h2 class="section-title">What You Can Learn</h2>
+        <div class="gold-line"></div>
+
+        <p class="section-intro">
+            Karate training helps students develop physical skills
+            and positive habits through regular practice.
+        </p>
+
+        <div class="training-grid">
+
+            <article class="training-card">
+                <h3>🥋 Karate Fundamentals</h3>
+                <p>
+                    Learn stances, punches, blocks, kicks,
+                    movements and karate techniques.
+                </p>
+            </article>
+
+            <article class="training-card">
+                <h3>🎯 Discipline & Focus</h3>
+                <p>
+                    Develop concentration, respect, self-control
+                    and consistent practice habits.
+                </p>
+            </article>
+
+            <article class="training-card">
+                <h3>💪 Fitness & Confidence</h3>
+                <p>
+                    Improve coordination, balance, flexibility,
+                    physical fitness and confidence.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- JOIN SECTION -->
+<section class="join-section">
+    <h2>Ready to Join Bodhi Tree Academy?</h2>
+
+    <p>
+        Contact us to confirm class details and learn
+        how to enrol at your nearest training location.
+    </p>
+
+    <a href="registration.html" class="cta-btn">
+        Join Our Academy
+    </a>
+
+    <a href="contact.html" class="cta-btn outline">
+        Contact Us
+    </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <h2>BODHI TREE ACADEMY</h2>
+
+    <p class="footer-tagline">School of Arts • Since 2013</p>
+    <p>Karate • Discipline • Confidence</p>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="instructors.html">Instructors</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="classes.html">Classes & Timings</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <p>
+        Phone:
+        <a href="tel:7373509363" style="color:#d6ad50;">
+            7373509363
+        </a>
+    </p>
+
+    <p>
+        Instagram:
+        <a href="https://www.instagram.com/bodhitree_academy_tn/"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color:#d6ad50;">
+            @bodhitree_academy_tn
+        </a>
+    </p>
+
+    <p class="copyright">
+        © <span id="year"></span> Bodhi Tree Academy.
+        All Rights Reserved.
+    </p>
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", function () {
+    const isOpen = navMenu.classList.toggle("open");
+
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+    menuToggle.setAttribute("aria-expanded", isOpen);
+});
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
